@@ -1,0 +1,16 @@
+.footer-section{
+    height: 70px;
+    width: 100%;
+    background-color: var(--btn-color);
+
+    & .footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+        & p{
+            font-size: 2.5rem;
+            margin-top: 18px ;
+        }
+    }
+}
