@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaList, FaUser } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
+import "./admin.css";
 const AdminLayout = () => {
   return (
     <>
@@ -11,8 +12,8 @@ const AdminLayout = () => {
             <ul>
               <li>
                 {" "}
-                <NavLink to="/admin/users">
-                  <FaUser /> Users
+                <NavLink to="/admin/users" className="admin-nav">
+                  <FaUser className="admin-icon" /> Users
                 </NavLink>{" "}
               </li>
               <li>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -13,14 +13,20 @@ import Logout from "./pages/Logout";
 import AdminLayout from "./components/Layout/AdminLayout";
 import AdminUser from "./pages/AdminUser";
 import AdminContact from "./pages/AdminContact";
+import Loader from "./components/Loader";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        {loading ? "" : <Navbar />}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={loading ? <Loader setLoading={setLoading} /> : <Home />}
+          />
+
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Service />} />
@@ -28,14 +34,13 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Error404 />} />
-
           {/* admin   */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="users" element={<AdminUser />} />
             <Route path="contacts" element={<AdminContact />} />
           </Route>
         </Routes>
-        <Footer />
+        {loading ? "" : <Footer />}
       </BrowserRouter>
     </>
   );
