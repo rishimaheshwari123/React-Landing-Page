@@ -7,11 +7,7 @@ const Loader = ({ setLoading }) => {
     }, 2000);
   }, [setLoading]);
 
-  return (
-    <div className="loader">
-      <p>loader....</p>
-    </div>
-  );
+  return <div className="loader"></div>;
 };
 
 export default Loader;
